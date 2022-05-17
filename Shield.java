@@ -18,19 +18,25 @@ public class Shield {
         heroes.add(new Hero("Doctor Strange", 42, false));
 
         List<Hero> elders;
-        // TODO 1 : filter heroes in order to found heroes older than 59
-
+        // List<Hero elders = new ArrayList<>();
+        elders = heroes.stream()
+        .filter(p -> p.getAge()>59)
+        .collect(Collectors.toList());
+        // TODO 1 : use a stream and a filter to recover the heroes in order to found heroes older than 59
         System.out.println("\nElders:");
         for (Hero elder : elders) {
-            System.out.println(elder.getName());
+            System.out.println(elder.getName()); 
         }
 
         List<Hero> intolerants;
-        // TODO 2 : filter heroes in order to found heroes that are gluten intolerants
-
+        intolerants = heroes.stream()
+        .filter(p -> p.isGlutenIntolerant())
+        .collect(Collectors.toList());
+        //TODO 2 : filter heroes in order to found heroes that are gluten intolerants
         System.out.println("\nGluten intolerants:");
         for (Hero intolerant : intolerants) {
             System.out.println(intolerant.getName());
         }
     }
 }
+
